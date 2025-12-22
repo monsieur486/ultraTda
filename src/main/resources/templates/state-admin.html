@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - État serveur</title>
+</head>
+<body>
+<h1>Admin - édition de l'état</h1>
+<form method="post" th:action="@{/admin/state}">
+    <div>
+        <label for="level">Level :</label>
+        <input id="level" name="level" required th:value="${state.level}" type="number">
+    </div>
+    <div>
+        <label for="nbPlayers">Nb joueurs :</label>
+        <input id="nbPlayers" name="nbPlayers" required th:value="${state.nbPlayers}" type="number">
+    </div>
+    <button type="submit">Enregistrer</button>
+</form>
+
+<p><a th:href="@{/}">Retour à la vue publique</a></p>
+
+</body>
+</html>
