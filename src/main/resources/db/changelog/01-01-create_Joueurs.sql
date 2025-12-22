@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS joueurs (uuid UUID NOT NULL, ami_id INTEGER, CONSTRAINT pk_joueurs PRIMARY KEY (uuid));
+

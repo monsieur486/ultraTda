@@ -16,16 +16,25 @@ function connect() {
 }
 
 function updateState(state) {
-    if(state.level === 100) afficheScore();
+    if(state.level === 100) recuperationData();
 }
 
-function afficheScore(){
-    axios.get('/api/public/scores')
+function recuperationData(){
+    axios.get('/api/public/data')
         .then(response => {
-            const scores = response.data;
-            const scoresDiv = document.getElementById('scores');
+            const data = response.data;
+            afficheScores(data.scores);
+        })
+        .catch(error => {
+            console.error("Erreur lors de la récupération des information :", error);
+            document.getElementById('error').innerHTML = "<p class='text-danger'>Impossible de charger les informations.</p>";
+        });
+}
 
-            let html = `
+function afficheScores(scores) {
+    const scoresDiv = document.getElementById('scores');
+
+    let html = `
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -36,8 +45,8 @@ function afficheScore(){
                     <tbody>
             `;
 
-            scores.forEach(s => {
-                html += `
+    scores.forEach(s => {
+        html += `
                     <tr>
                         <td class="align-middle">
                             <img src="/img/${s.imageUrl}" alt="${s.nom}" 
@@ -49,15 +58,10 @@ function afficheScore(){
                         </td>
                     </tr>
                 `;
-            });
+    });
 
-            html += '</tbody></table>';
-            scoresDiv.innerHTML = html;
-        })
-        .catch(error => {
-            console.error("Erreur lors de la récupération des scores :", error);
-            document.getElementById('scores').innerHTML = "<p class='text-danger'>Impossible de charger les scores.</p>";
-        });
+    html += '</tbody></table>';
+    scoresDiv.innerHTML = html;
 }
 
 connect();
