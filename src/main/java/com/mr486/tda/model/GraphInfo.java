@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ResponseDto {
-    private List<ScoreDto> scores;
-    private GraphInfo graphInfo;
+public class GraphInfo {
+    private List<Integer> labels;
+    private List<DataSet> dataSets;
 }

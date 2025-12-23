@@ -1,4 +1,5 @@
 let stompClient = null;
+const ctx = document.getElementById('myChart');
 
 function connect() {
     const socket = new SockJS('/ws');
@@ -24,6 +25,7 @@ function recuperationData(){
         .then(response => {
             const data = response.data;
             afficheScores(data.scores);
+            afficheGraph(data.graphInfo);
         })
         .catch(error => {
             console.error("Erreur lors de la récupération des information :", error);
@@ -38,8 +40,6 @@ function afficheScores(scores) {
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Joueur</th>
-                            <th class="text-end">Score</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,6 +62,48 @@ function afficheScores(scores) {
 
     html += '</tbody></table>';
     scoresDiv.innerHTML = html;
+}
+
+function afficheGraph(datas) {
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [0,1,2,3,4,5],
+            datasets: [
+                {
+                    label: 'Toto',
+                    data: [0, 19, 3, 5, 2, 3],
+                    borderWidth: 5
+                },
+                {
+                    label: 'Titi',
+                    data: [0, -19, -3, -5, -2, -3],
+                    borderWidth: 5
+                },
+                {
+                    label: 'Tata',
+                    data: [0, 10, 13, 15, 8, 13],
+                    borderWidth: 5
+                }
+            ]
+        },
+        options: {
+            animations: {
+                tension: {
+                    duration: 1500,
+                    easing: 'linear',
+                    from: 0.5,
+                    to: 0,
+                    loop: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 }
 
 connect();

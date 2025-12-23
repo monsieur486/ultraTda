@@ -13,6 +13,8 @@ services:
       - tda_db_data:/var/lib/postgresql/data
 
   tda-webclient:
+    env_file:
+      - .env
     build:
       dockerfile: Dockerfile
     profiles: [ "fullstack" ]
