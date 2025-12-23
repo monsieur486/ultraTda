@@ -4,7 +4,9 @@
 <div th:fragment="menu">
     <nav class="navbar bg-primary fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="">TDA</a>
+            <a class="navbar-brand" href="/">TDA</a>
+            <a class="navbar-brand" href="/admin/reunion" sec:authorize="isAuthenticated()">📅 Réunion</a>
+            <a class="navbar-brand" href="/admin/partie" sec:authorize="isAuthenticated()">📝 Parties</a>
             <button aria-controls="offcanvasNavbar" aria-label="Toggle navigation" class="navbar-toggler"
                     data-bs-target="#offcanvasNavbar"
                     data-bs-toggle="offcanvas" type="button">
