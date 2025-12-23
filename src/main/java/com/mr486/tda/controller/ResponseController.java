@@ -1,6 +1,6 @@
 package com.mr486.tda.controller;
 
-import com.mr486.tda.model.ResponseDto;
+import com.mr486.tda.dto.ResponseDto;
 import com.mr486.tda.service.ScoreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

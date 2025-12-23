@@ -1,5 +1,6 @@
-package com.mr486.tda.model;
+package com.mr486.tda.dto;
 
+import com.mr486.tda.model.GraphInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

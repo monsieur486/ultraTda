@@ -20,14 +20,14 @@ public class Partie {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
 
-    private Integer nombreJoueurs=0;
-    private Integer contratId=0;
-    private Integer preneurId=0;
-    private Integer appelId=0;
-    private Integer mortId=0;
-    private Boolean estFait=false;
-    private Integer score=0;
-    private Integer petitAuBoutId=0;
-    private Boolean chelem=false;
-    private Boolean capot=false;
+    private Integer nombreJoueurs = 0;
+    private Integer contratId = 0;
+    private Integer preneurId = 0;
+    private Integer appelId = 0;
+    private Integer mortId = 0;
+    private Boolean estFait = false;
+    private Integer score = 0;
+    private Integer petitAuBoutId = 0;
+    private Boolean chelem = false;
+    private Boolean capot = false;
 }

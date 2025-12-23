@@ -36,4 +36,12 @@ public class JoueurService {
                 .sorted(Comparator.comparing(Ami::getNom))
                 .toList();
     }
+
+    public Integer getNbJoueurs() {
+        return getAmisInscrits().size();
+    }
+
+    public void deleteAll() {
+        joueurRepository.deleteAll();
+    }
 }

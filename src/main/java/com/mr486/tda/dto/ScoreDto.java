@@ -1,4 +1,4 @@
-package com.mr486.tda.model;
+package com.mr486.tda.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

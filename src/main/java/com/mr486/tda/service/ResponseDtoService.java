@@ -1,6 +1,6 @@
 package com.mr486.tda.service;
 
-import com.mr486.tda.model.ResponseDto;
+import com.mr486.tda.dto.ResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

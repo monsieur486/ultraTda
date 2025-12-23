@@ -1,7 +1,7 @@
 package com.mr486.tda.service;
 
 import com.mr486.tda.model.Score;
-import com.mr486.tda.model.ScoreDto;
+import com.mr486.tda.dto.ScoreDto;
 import com.mr486.tda.repository.ScoreRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
