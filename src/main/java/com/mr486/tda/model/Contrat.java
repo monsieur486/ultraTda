@@ -5,14 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ResponseDto {
-    private List<ScoreDto> scores;
-    private GraphInfo graphInfo;
-    private List<String> parties;
+public class Contrat {
+    private Integer id;
+    private String nom;
+    private String initiale;
+    private Integer points;
 }
