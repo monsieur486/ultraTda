@@ -33,7 +33,7 @@ public class ScoreService {
 
     private String getColor(int score) {
         if (score > 0) {
-            return "#00FF00";
+            return "#0000FF";
         } else if (score < 0) {
             return "#FF0000";
         } else {
