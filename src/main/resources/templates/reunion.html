@@ -12,7 +12,12 @@
 <div th:replace="~{fragments/menu :: menu}"></div>
 <div class="container-fluid">
         <div id="top-offset"></div>
-        <h5>Reunion</h5>
+    <div id="reunion-creation" th:if="${etape == 1}">
+        <p>Creation</p>
+    </div>
+    <div id="nreunion-encours" th:if="${etape > 1}">
+        <p>En cours</p>
+    </div>
 </div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
