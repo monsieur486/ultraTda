@@ -1,6 +1,7 @@
 package com.mr486.tda.controller;
 
 import com.mr486.tda.dto.ResponseDto;
+import com.mr486.tda.service.ResponseDtoService;
 import com.mr486.tda.service.ScoreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class ResponseController {
 
-    private final ScoreService scoreService;
+    private final ResponseDtoService responseDtoService;
 
     @GetMapping("/api/public/data")
     public ResponseEntity<ResponseDto> getScores() {
-        ResponseDto responseDto = new ResponseDto();
-        responseDto.setScores(scoreService.getScores());
-        return ResponseEntity.ok(responseDto);
+        return ResponseEntity.ok(responseDtoService.getResponseDto());
     }
 }

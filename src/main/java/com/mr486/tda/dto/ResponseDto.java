@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class ResponseDto {
+    private Integer etape;
     private List<ScoreDto> scores;
     private GraphInfo graphInfo;
     private List<String> parties;
