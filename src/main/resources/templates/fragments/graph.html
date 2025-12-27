@@ -1,10 +1,7 @@
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="graph">
-    <div class="chart-container" style="position: relative; height:80vh" th:if="${etape != 1}">
+    <div class="chart-container" style="position: relative; height:80vh">
         <canvas id="myChart"></canvas>
-    </div>
-    <div id="no-joueurs" th:if="${etape == 1}">
-        <p>En attente de joueurs</p>
     </div>
 </div>
 </html>
