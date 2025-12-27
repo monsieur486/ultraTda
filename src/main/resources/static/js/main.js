@@ -24,8 +24,11 @@ function recuperationData(){
     axios.get('/api/public/data')
         .then(response => {
             const data = response.data;
-            afficheScores(data.scores);
-            afficheGraph(data.graphInfo);
+            if(data.etape !== 1){
+                afficheScores(data.scores);
+                afficheGraph(data.graphInfo);
+            }
+
         })
         .catch(error => {
             console.error("Erreur lors de la récupération des information :", error);

@@ -1,5 +1,8 @@
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="score">
-    <div id="scores"></div>
+    <div id="scores" th:if="${etape != 1}"></div>
+    <div id="no-joueurs" th:if="${etape == 1}">
+        <p>En attente de joueurs</p>
+    </div>
 </div>
 </html>

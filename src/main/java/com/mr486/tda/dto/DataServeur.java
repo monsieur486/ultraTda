@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ResponseDto {
+public class DataServeur {
     private Integer etape;
     private List<ScoreDto> scores;
     private GraphInfo graphInfo;
