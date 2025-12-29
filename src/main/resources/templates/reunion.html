@@ -13,9 +13,54 @@
 <div class="container-fluid">
         <div id="top-offset"></div>
     <div id="reunion-creation" th:if="${etape == 1}">
-        <p>Creation</p>
+        <div class="alert alert-danger" th:if="${creationError}" th:text="${creationError}"></div>
+        <div class="alert alert-success" th:if="${creationSuccess}" th:text="${creationSuccess}"></div>
+
+        <form id="reunionCreationForm" method="post" th:action="@{/admin/reunion/creation}">
+            <div class="amis-list">
+                <div class="ami-item" th:each="ami : ${amis}">
+                    <label>
+                        <input class="ami-checkbox" name="amiIds" th:value="${ami.id}" type="checkbox">
+                        <span th:text="${ami.nom}"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div id="selectionInfo" style="margin-top: 10px;"></div>
+
+            <button class="btn btn-primary" disabled id="btnEnvoyer" type="submit">Envoyer</button>
+        </form>
+
+        <script>
+            (function () {
+                const min = 4;
+                const max = 6;
+
+                const form = document.getElementById('reunionCreationForm');
+                const btn = document.getElementById('btnEnvoyer');
+                const info = document.getElementById('selectionInfo');
+
+                function refresh() {
+                    const checked = form.querySelectorAll('.ami-checkbox:checked').length;
+
+                    if (checked < min) {
+                        info.textContent = `Sélection: ${checked} (minimum ${min})`;
+                        btn.disabled = true;
+                    } else if (checked > max) {
+                        info.textContent = `Sélection: ${checked} (maximum ${max})`;
+                        btn.disabled = true;
+                    } else {
+                        info.textContent = `Sélection: ${checked} (ok)`;
+                        btn.disabled = false;
+                    }
+                }
+
+                form.addEventListener('change', refresh);
+                refresh();
+            })();
+        </script>
     </div>
-    <div id="nreunion-encours" th:if="${etape > 1}">
+    <div id="reunion-encours" th:if="${etape > 1}">
         <p>En cours</p>
     </div>
 </div>

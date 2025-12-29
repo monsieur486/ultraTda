@@ -3,10 +3,12 @@ package com.mr486.tda.service;
 import com.mr486.tda.entity.Reunion;
 import com.mr486.tda.repository.ReunionRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ReunionService {
 
     private final ReunionRepository reunionRepository;
@@ -25,8 +27,10 @@ public class ReunionService {
         if (status == null) {
             throw new IllegalArgumentException("Status cannot be null");
         }
-
-        reunionRepository.findAll().forEach(reunion -> reunion.setStatus(status));
+        Reunion reunion = getReunionActive();
+        reunion.setStatus(status);
+        reunionRepository.save(reunion);
+        log.warn("Changing status to {}", status);
     }
 
     public Integer reunionActiveStatus() {

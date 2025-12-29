@@ -1,5 +1,6 @@
 package com.mr486.tda.service;
 
+import com.mr486.tda.dto.AmiListe;
 import com.mr486.tda.model.Ami;
 import com.mr486.tda.repository.AmiRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,10 @@ public class AmiService {
 
     public Ami getAmiById(Integer id) {
         return amiRepository.findById(id).orElse(null);
+    }
+
+    public List<AmiListe> getAmisListe() {
+        return getAmis().stream().map(AmiListe::new).toList();
     }
 
 }
